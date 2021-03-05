@@ -2,28 +2,32 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ItemCreator from '../Shared/ItemCreator'
 
-function BoughtItems(items) {
+function BoughtItems({itemsInStore}) {
 
     function displayAllItems() {
-        const itemsList = items.map((item, index) =>
-            <li key={index}>
-              {item.name}
-            </li>
-        );
-        return itemsList
+        const listItems = itemsInStore.map((item, idx) =>
+            <div key={idx}>
+                <div>{item.name}</div>
+                <div>{item.store}</div>
+                <div>{item.price}</div>
+                <div>{item.date}</div>
+            </div>
+        )
+        return listItems;
     }
 
     return (
         <>
             <ItemCreator />
-            {/* {displayAllItems()} */}
+            <br />
+            {displayAllItems()}
         </>
     )
 }
 
-const mapStateToProps = (state) => {
-    //items: state.itemStore.items
-}
+const mapStateToProps = (state) => ({
+    itemsInStore: state.userItemCart.items
+})
 
 export default connect(
     mapStateToProps, null
