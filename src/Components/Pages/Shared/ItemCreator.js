@@ -4,7 +4,7 @@ import randomDateGenerator from '../../../Helpers/randomDateGenerator'
 import { addItem } from '../itemStoreSlice'
 import { connect } from 'react-redux'
 
-function ItemCreator({ addItem }) {
+function ItemCreator({ addItem, id }) {
 
     const [name, setName] = useState("");
     const [store, setStore] = useState("");
@@ -14,7 +14,7 @@ function ItemCreator({ addItem }) {
     const date = randomDateGenerator();
 
     function addCurrentItem() {
-        const item = { name, store, price, date };
+        const item = { id, name, store, price, date };
         addItem(item);
     }
 
@@ -29,13 +29,15 @@ function ItemCreator({ addItem }) {
     )
 }
 
-// const mapStateToProps = state => ({ todos: state.todos })
+const mapStateToProps = (state) => ({
+    id: state.userItemCart.itemIDCounter,
+})
 
 const mapDispatchToProps = {
     addItem
 }
 
 export default connect(
-  null, mapDispatchToProps
+    mapStateToProps, mapDispatchToProps
 )(ItemCreator);
 

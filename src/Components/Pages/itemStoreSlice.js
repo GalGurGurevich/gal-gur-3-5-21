@@ -12,6 +12,7 @@ export const itemStoreSlice = createSlice({
   initialState: {
     items: [],
     recivedItems: [],
+    itemIDCounter: 0,
     delayTimeBetweenAPICall: 100,
     dollarToShekel: null,
     apiError: false,
@@ -19,6 +20,7 @@ export const itemStoreSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       state.items = [...state.items, action.payload];
+      state.itemIDCounter++;
     },
   },
   extraReducers: {

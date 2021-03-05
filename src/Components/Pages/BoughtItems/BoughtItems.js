@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import ItemCreator from '../Shared/ItemCreator'
 import { getCurrenyRates } from '../itemStoreSlice'
+import Item from '../Item/Item'
 
 function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel}) {
 
@@ -11,13 +12,23 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
         setTimeout(getCurrenyRates(), timeInterval);
     },[])
 
+    function displayPrice(price) {
+       return showShekel ? price * dollarToShekel : price
+    }
+
+    function displayCashSymbol() {
+       return showShekel ? '₪' : '$' 
+    }
+
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
             <div key={idx}>
-                <div>{item.name}</div>
-                <div>{item.store}</div>
-                <div>{item.price}$</div><button onClick={() => setShowShekel(!showShekel)}>ILS</button>
-                <div>{item.date}</div>
+                <Item 
+                name={item.name} 
+                store={item.store}
+                price={item.price}
+                date={item.date}
+                 />
             </div>
         )
         return listItems;
