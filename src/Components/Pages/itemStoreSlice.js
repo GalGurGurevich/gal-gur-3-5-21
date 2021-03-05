@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import exchangeRates from '../../API/exchangeRates'
 
-const getCurrenyRates = createAsyncThunk('users/fetchByIdStatus', async (thunkAPI) => {
-    const response = await exchangeRates.apply();
-    return response.data
+export const getCurrenyRates = createAsyncThunk("getCurrenyRates", async (thunkAPI) => {
+    const response = await exchangeRates().then(result => result);
+    return response
   }
 )
 
@@ -12,23 +12,26 @@ export const itemStoreSlice = createSlice({
   initialState: {
     items: [],
     recivedItems: [],
-    delayTimeBetweenAPICall: 0,
+    delayTimeBetweenAPICall: 10000,
     dollarToShekel: null,
-    displayShekel: false
+    apiError: false,
   },
   reducers: {
     addItem: (state, action) => {
       state.items = [...state.items, action.payload];
+    },
+    changeDisplayOfExchangeRate: (state, action) => {
+      state.displayShekel = !state.displayShekel;
     }
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
     [getCurrenyRates.fulfilled]: (state, action) => {
-      state.dollarToShekel = action.payload
+      state.dollarToShekel = action.payload.rates.ILS
     }
   }
 });
 
-export const { addItem } = itemStoreSlice.actions;
+export const { addItem, changeDisplayOfExchangeRate } = itemStoreSlice.actions;
 
 export default itemStoreSlice.reducer;
