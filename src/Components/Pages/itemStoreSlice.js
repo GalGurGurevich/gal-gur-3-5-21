@@ -12,7 +12,7 @@ export const itemStoreSlice = createSlice({
   initialState: {
     items: [],
     recivedItems: [],
-    delayTimeBetweenAPICall: 10000,
+    delayTimeBetweenAPICall: 100,
     dollarToShekel: null,
     apiError: false,
   },
@@ -20,9 +20,6 @@ export const itemStoreSlice = createSlice({
     addItem: (state, action) => {
       state.items = [...state.items, action.payload];
     },
-    changeDisplayOfExchangeRate: (state, action) => {
-      state.displayShekel = !state.displayShekel;
-    }
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed

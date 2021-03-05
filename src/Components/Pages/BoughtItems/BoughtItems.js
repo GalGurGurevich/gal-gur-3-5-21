@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ItemCreator from '../Shared/ItemCreator'
 import { getCurrenyRates } from '../itemStoreSlice'
 
-function BoughtItems({itemsInStore, getCurrenyRates, timeInterval}) {
+function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel}) {
 
     const [showShekel, setShowShekel] = useState(false);
 

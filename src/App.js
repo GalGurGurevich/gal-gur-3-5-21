@@ -1,37 +1,22 @@
 import React from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import BoughtItems from './Components/Pages/BoughtItems/BoughtItems'
+import BoughtItemsPage from './Components/Pages/BoughtItemsPage/BoughtItemsPage'
+import ReceivedListPage from './Components/Pages/ReceivedListPage/ReceivedListPage'
+import TabNavigator from './Components/Pages/Shared/TabNavigator'
 import './App.css';
 
 function App() {
-  // return (
-  //   <div className="app">
-  //     <ItemList />
-  //   </div>
-  // );
-
-  {/* <BrowserRouter>
-      <div className="app">
-          <Switch>
-              <Route path='/'>
-                  <BoughtItems />
-              </Route>
-          </Switch>
-      </div>
-    </BrowserRouter> */}
 
   return (
       <BrowserRouter>
         <div className="app">
+            <TabNavigator />
             <Switch>
+                <Route path="/receivedListPage">
+                    <ReceivedListPage />
+                </Route>
                 <Route path='/'>
-                    <BoughtItems />
+                    <BoughtItemsPage />
                 </Route>
             </Switch>
         </div>
