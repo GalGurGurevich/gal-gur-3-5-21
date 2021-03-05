@@ -1,17 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import exchangeRates from '../../API/exchangeRates'
+
+const getCurrenyRates = createAsyncThunk('users/fetchByIdStatus', async (thunkAPI) => {
+    const response = await exchangeRates.apply();
+    return response.data
+  }
+)
 
 export const itemStoreSlice = createSlice({
   name: 'itemStore',
   initialState: {
     items: [],
-    itemTotalSum: 0
+    recivedItems: [],
+    delayTimeBetweenAPICall: 0,
+    dollarToShekel: null,
+    displayShekel: false
   },
   reducers: {
     addItem: (state, action) => {
       state.items = [...state.items, action.payload];
-      state.itemTotalSum += action.payload.price
     }
   },
+  extraReducers: {
+    // Add reducers for additional action types here, and handle loading state as needed
+    [getCurrenyRates.fulfilled]: (state, action) => {
+      state.dollarToShekel = action.payload
+    }
+  }
 });
 
 export const { addItem } = itemStoreSlice.actions;

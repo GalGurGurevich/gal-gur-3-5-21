@@ -1,13 +1,42 @@
 import React from 'react';
-import ItemList from './features/Item/itemList';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import BoughtItems from './Components/Pages/BoughtItems/BoughtItems'
 import './App.css';
 
 function App() {
+  // return (
+  //   <div className="app">
+  //     <ItemList />
+  //   </div>
+  // );
+
+  {/* <BrowserRouter>
+      <div className="app">
+          <Switch>
+              <Route path='/'>
+                  <BoughtItems />
+              </Route>
+          </Switch>
+      </div>
+    </BrowserRouter> */}
+
   return (
-    <div className="app">
-      <ItemList />
-    </div>
-  );
+      <BrowserRouter>
+        <div className="app">
+            <Switch>
+                <Route path='/'>
+                    <BoughtItems />
+                </Route>
+            </Switch>
+        </div>
+      </BrowserRouter>
+  )
 }
 
 export default App;
