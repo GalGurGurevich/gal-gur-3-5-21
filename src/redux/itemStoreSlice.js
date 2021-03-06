@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exchangeRates from '../../API/exchangeRates';
+import exchangeRates from '../../src/API/exchangeRates';
 
 const timeInterval = 10000;
 
@@ -32,6 +32,7 @@ export const itemStoreSlice = createSlice({
         // Add reducers for additional action types here, and handle loading state as needed
         [getCurrenyRates.fulfilled]: (state, action) => {
             state.dollarToShekel = action.payload.rates.ILS;
+            state.apiError = false
         },
         [getCurrenyRates.rejected]: (state, action) => {
             state.apiError = true;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addItem } from '../../itemStoreSlice';
+import { addItem } from '../../../../redux/itemStoreSlice';
 import { connect } from 'react-redux';
 import './ItemCreator.css';
 

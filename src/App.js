@@ -1,53 +1,51 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import BoughtItemsPage from './Components/Pages/BoughtItemsPage/BoughtItemsPage'
-import ReceivedListPage from './Components/Pages/ReceivedListPage/ReceivedListPage'
-import TabNavigator from './Components/Pages/Shared/TabNavigator/TabNavigator'
-import { connect } from 'react-redux'
-import { getCurrenyRates } from './Components/Pages/itemStoreSlice'
+import BoughtItemsPage from './Components/Pages/BoughtItemsPage/BoughtItemsPage';
+import ReceivedListPage from './Components/Pages/ReceivedListPage/ReceivedListPage';
+import TabNavigator from './Components/Pages/Shared/TabNavigator/TabNavigator';
+import { connect } from 'react-redux';
+import { getCurrenyRates } from './redux/itemStoreSlice';
 import './App.css';
 
-function App({getCurrenyRates, timeInterval, apiError}) {
-
+function App({ getCurrenyRates, timeInterval, apiError }) {
+    
     useEffect(() => {
         getCurrenyRates();
-        setInterval(function(){ 
-            getCurrenyRates()
-        }, timeInterval);
-    },[])
+        const interval = setInterval(getCurrenyRates, timeInterval);
+
+        return () => clearInterval(interval);
+    }, [getCurrenyRates, timeInterval]);
 
     useEffect(() => {
-        if(apiError === true) {
-            alert("Error! sorry server possibly down or currently unavailble, try again later...");
+        if (apiError === true) {
+            alert('Error! sorry server possibly down or currently unavailble, try again later...');
         }
-    },[apiError])
+    }, [apiError]);
 
-  return (
-      <BrowserRouter>
-        <div className="app">
-            <TabNavigator />
-            <Switch>
-                <Route exact path="/receivedListPage">
-                    <ReceivedListPage />
-                </Route>
-                <Route path='/boughtItemsPage'>
-                    <BoughtItemsPage />
-                </Route>
-            </Switch>
-        </div>
-      </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <div className='app'>
+                <TabNavigator />
+                <Switch>
+                    <Route exact path='/receivedListPage'>
+                        <ReceivedListPage />
+                    </Route>
+                    <Route path='/boughtItemsPage'>
+                        <BoughtItemsPage />
+                    </Route>
+                </Switch>
+            </div>
+        </BrowserRouter>
+    );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     timeInterval: state.userItemCart.delayTimeBetweenAPICall,
-    apiError: state.userItemCart.apiError
-})
+    apiError: state.userItemCart.apiError,
+});
 
 const mapDispatchToProps = {
-    getCurrenyRates
-}
+    getCurrenyRates,
+};
 
-export default connect(
-    mapStateToProps, mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
