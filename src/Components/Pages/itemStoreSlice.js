@@ -19,7 +19,7 @@ export const itemStoreSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.items = [...state.items, action.payload];
+      state.items = [...state.items, action.payload].sort((a, b) => new Date(a.deliveryAt) - new Date(b.deliveryAt));
       state.itemIDCounter++;
     },
     receiveItem: (state, action) => {
