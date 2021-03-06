@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import ItemCreator from '../Shared/ItemCreator'
+import ItemCreator from '../Shared/ItemCreator/ItemCreator'
 import { getCurrenyRates } from '../itemStoreSlice'
 import Item from '../Item/Item'
+import './BoughtItems.css'
 
 function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel}) {
 
@@ -19,7 +20,7 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
 
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
-            <div key={idx}>
+            <div key={idx} className="list-item-container">
                 <Item 
                 id = {item.id}
                 name={item.name} 

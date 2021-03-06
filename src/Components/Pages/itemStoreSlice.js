@@ -12,6 +12,7 @@ export const itemStoreSlice = createSlice({
   initialState: {
     items: [],
     recivedItems: [],
+    aggregatedStore: [],
     itemIDCounter: 0,
     delayTimeBetweenAPICall: 10000,
     dollarToShekel: null,
@@ -23,19 +24,24 @@ export const itemStoreSlice = createSlice({
       state.itemIDCounter++;
     },
     receiveItem: (state, action) => {
-      console.log("receiveItem", action.payload)
       state.recivedItems = [...state.recivedItems, action.payload];
       state.items = state.items.filter((item) => item.id !== action.payload.id);
+    },
+    getAggregatedStore: (state, action) => {
+      state.aggregatedStore = [...action.payload];
     }
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
     [getCurrenyRates.fulfilled]: (state, action) => {
       state.dollarToShekel = action.payload.rates.ILS
-    }
+    },
+    [getCurrenyRates.rejected]: (state, action) => {
+      state.apiError = true
+    },
   }
 });
 
-export const { addItem, changeDisplayOfExchangeRate, receiveItem } = itemStoreSlice.actions;
+export const { addItem, changeDisplayOfExchangeRate, receiveItem, getAggregatedStore } = itemStoreSlice.actions;
 
 export default itemStoreSlice.reducer;

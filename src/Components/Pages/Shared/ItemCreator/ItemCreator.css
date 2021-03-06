@@ -1,0 +1,10 @@
+.item-creator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.labels {
+    font-weight: bold;
+}

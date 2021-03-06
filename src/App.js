@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import BoughtItemsPage from './Components/Pages/BoughtItemsPage/BoughtItemsPage'
 import ReceivedListPage from './Components/Pages/ReceivedListPage/ReceivedListPage'
-import TabNavigator from './Components/Pages/Shared/TabNavigator'
+import TabNavigator from './Components/Pages/Shared/TabNavigator/TabNavigator'
 import './App.css';
 
 function App() {
@@ -12,10 +12,10 @@ function App() {
         <div className="app">
             <TabNavigator />
             <Switch>
-                <Route path="/receivedListPage">
+                <Route exact path="/receivedListPage">
                     <ReceivedListPage />
                 </Route>
-                <Route path='/'>
+                <Route path='/boughtItemsPage'>
                     <BoughtItemsPage />
                 </Route>
             </Switch>
