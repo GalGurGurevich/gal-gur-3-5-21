@@ -10,7 +10,7 @@ function ReceivedListPage({itemsInStore}) {
 
     return (
         <div className="receivedListPage-root">
-            <h3 className="receivedListPage-header">Hellow from ReceivedListPage</h3>
+            <h3 className="receivedListPage-header">Hello from ReceivedListPage</h3>
             <button className="receivedListPage-btn" onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
             <button className="receivedListPage-btn" onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={false} canReceive={false}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }

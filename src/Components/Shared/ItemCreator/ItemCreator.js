@@ -26,13 +26,13 @@ function ItemCreator({ addItem, id }) {
     return (
         <div className='item-creator-container'>
             <div className='labels'>Product Name:</div>
-            <input type='text' onChange={e => setName(e.target.value)} value={name}/>
+            <input className="inputs" type='text' onChange={e => setName(e.target.value)} value={name}/>
             <div className='labels'>Bought In Store:</div>
-            <input type='text' onChange={e => setStore(e.target.value)} value={store}/>
+            <input className="inputs" type='text' onChange={e => setStore(e.target.value)} value={store}/>
             <div className='labels'>Price Paid:</div>
-            <input type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
+            <input className="inputs" type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
             <div className='labels'>Will Arive At:</div>
-            <input type='date' onChange={e => setDate(e.target.value)} value={date}/>
+            <input className="inputs" type='date' onChange={e => setDate(e.target.value)} value={date}/>
             <button onClick={() => addCurrentItem()}>ADD ITEM</button>
         </div>
     );
