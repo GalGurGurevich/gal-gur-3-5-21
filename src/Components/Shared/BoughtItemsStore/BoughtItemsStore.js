@@ -1,5 +1,5 @@
 import React from 'react';
-import { groupBy, groupCompnayAndSum } from '../../../../Helpers/aggregator';
+import { groupBy, groupCompnayAndSum } from '../../../Helpers/aggregator';
 import './BoughtItemsStore.css';
 
 export default function BoughtItemsStore({ itemsInStore }) {

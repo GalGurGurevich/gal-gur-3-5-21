@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import BoughtItems from '../Shared/BoughtItems/BoughtItems'
-import BoughtItemsStore from '../Shared/BoughtItemsStore/BoughtItemsStore'
+import BoughtItems from '../../Shared/BoughtItems/BoughtItems'
+import BoughtItemsStore from '../../Shared/BoughtItemsStore/BoughtItemsStore'
 import { connect } from 'react-redux'
 import './BoughtItemsPage.css'
 

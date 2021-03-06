@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { receiveItem } from '../../../../redux/itemStoreSlice'
+import { receiveItem } from '../../../redux/itemStoreSlice'
 import './Item.css'
 
 function Item({id , name, store, price, date, dollarToShekel, receiveItem, canReceive, apiError }) {
