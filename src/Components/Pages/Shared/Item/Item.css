@@ -1,8 +1,11 @@
 .item-box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin: 5px 0px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .item-feild {

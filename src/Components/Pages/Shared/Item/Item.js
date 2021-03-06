@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { receiveItem } from '../../itemStoreSlice'
 import './Item.css'
 
-function Item({id , name, store, price, date, dollarToShekel, receiveItem}) {
+function Item({id , name, store, price, date, dollarToShekel, receiveItem, canReceive }) {
     
     const [showShekel, setShowShekel] = useState(false);
     const currentItem = { id: id, name: name, store: store, price: price, deliveryAt: date };
@@ -26,7 +26,7 @@ function Item({id , name, store, price, date, dollarToShekel, receiveItem}) {
             <div className="item-feild">{store}</div>
             <div className="item-feild">{displayPrice(price)}{displayCashSymbol()}</div><button onClick={() => setShowShekel(!showShekel)}>CHANGE CURRENCY</button>
             <div className="item-feild">{date}</div>
-            <button onClick={() => receiveItem(currentItem)}>Received</button>
+            {canReceive ? <button onClick={() => receiveItem(currentItem)}>Received</button> : null }
         </div>
     )
 }

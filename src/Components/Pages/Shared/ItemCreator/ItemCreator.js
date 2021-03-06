@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
-import randomPriceGenerator from '../../../../Helpers/randomPriceGenerator'
-import randomDateGenerator from '../../../../Helpers/randomDateGenerator'
-import { addItem } from '../../itemStoreSlice'
-import { connect } from 'react-redux'
-import './ItemCreator.css'
+import React, { useEffect, useState } from 'react';
+import { addItem } from '../../itemStoreSlice';
+import { connect } from 'react-redux';
+import './ItemCreator.css';
 
 function ItemCreator({ addItem, id }) {
-
-    const [name, setName] = useState("");
-    const [store, setStore] = useState("");
-    const minPrice = 1;
-    const maxPrice = 1001;
-    const price = randomPriceGenerator(minPrice, maxPrice);
-    const date = randomDateGenerator();
+    const [name, setName] = useState('');
+    const [store, setStore] = useState('');
+    const [price, setPrice] = useState(0);
+    const [date, setDate] = useState('');
 
     function addCurrentItem() {
         const item = { id: id, name: name, store: store, price: price, deliveryAt: date };
@@ -20,25 +15,26 @@ function ItemCreator({ addItem, id }) {
     }
 
     return (
-        <div className="item-creator-container">
-            <div className="labels">Product Name:</div>
-            <input type="text" onChange={(e) => setName(e.target.value)} />
-            <div className="labels">Bought In Store:</div>
-            <input type="text" onChange={(e) => setStore(e.target.value)}/>
+        <div className='item-creator-container'>
+            <div className='labels'>Product Name:</div>
+            <input type='text' onChange={e => setName(e.target.value)} />
+            <div className='labels'>Bought In Store:</div>
+            <input type='text' onChange={e => setStore(e.target.value)} />
+            <div className='labels'>Price Paid:</div>
+            <input type='number' onChange={e => setPrice(+e.target.value)} />
+            <div className='labels'>Will Arive At:</div>
+            <input type='date' onChange={e => setDate(e.target.value)} />
             <button onClick={() => addCurrentItem()}>ADD ITEM</button>
         </div>
-    )
+    );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     id: state.userItemCart.itemIDCounter,
-})
+});
 
 const mapDispatchToProps = {
-    addItem
-}
+    addItem,
+};
 
-export default connect(
-    mapStateToProps, mapDispatchToProps
-)(ItemCreator);
-
+export default connect(mapStateToProps, mapDispatchToProps)(ItemCreator);

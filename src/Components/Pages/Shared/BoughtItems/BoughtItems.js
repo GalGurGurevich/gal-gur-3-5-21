@@ -1,24 +1,9 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 import ItemCreator from '../ItemCreator/ItemCreator'
-import { getCurrenyRates } from '../../itemStoreSlice'
 import Item from '../Item/Item'
 import './BoughtItems.css'
 
-function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel, shouldDisplayCreator, apiError}) {
-
-    useEffect(() => {
-        getCurrenyRates();
-        setInterval(function(){ 
-            getCurrenyRates()
-        }, timeInterval);
-    },[])
-
-    useEffect(() => {
-        if(apiError === true) {
-            alert("Error! sorry server possibly down or currently unavailble, try again later...");
-        }
-    },[apiError])
+export default function BoughtItems({itemsInStore, shouldDisplayCreator, canReceive}) {
 
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
@@ -29,6 +14,7 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
                 store={item.store}
                 price={item.price}
                 date={item.deliveryAt}
+                canReceive={canReceive}
                  />
             </div>
         )
@@ -43,18 +29,3 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
         </>
     )
 }
-
-const mapStateToProps = (state) => ({
-    itemsInStore: state.userItemCart.items,
-    dollarToShekel: state.userItemCart.dollarToShekel,
-    timeInterval: state.userItemCart.delayTimeBetweenAPICall,
-    apiError: state.userItemCart.apiError
-})
-
-const mapDispatchToProps = {
-    getCurrenyRates
-}
-
-export default connect(
-    mapStateToProps, mapDispatchToProps
-)(BoughtItems);
