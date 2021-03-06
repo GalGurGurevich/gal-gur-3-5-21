@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import BoughtItems from '../BoughtItems/BoughtItems'
-import BoughtItemsStore from '../BoughtItemsStore/BoughtItemsStore'
+import BoughtItems from '../Shared/BoughtItems/BoughtItems'
+import BoughtItemsStore from '../Shared/BoughtItemsStore/BoughtItemsStore'
 import './BoughtItemsPage.css'
 
 export default function BoughtItemsPage() {

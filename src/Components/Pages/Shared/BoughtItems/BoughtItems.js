@@ -1,22 +1,18 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import ItemCreator from '../Shared/ItemCreator/ItemCreator'
-import { getCurrenyRates } from '../itemStoreSlice'
-import Item from '../Shared/Item/Item'
+import ItemCreator from '../ItemCreator/ItemCreator'
+import { getCurrenyRates } from '../../itemStoreSlice'
+import Item from '../Item/Item'
 import './BoughtItems.css'
 
 function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel, shouldDisplayCreator, apiError}) {
 
     useEffect(() => {
-        // first run only
         getCurrenyRates();
-    },[])
-
-    useEffect(() => {
         setInterval(function(){ 
             getCurrenyRates()
         }, timeInterval);
-    },[dollarToShekel])
+    },[])
 
     useEffect(() => {
         if(apiError === true) {

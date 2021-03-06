@@ -22,10 +22,10 @@ function Item({id , name, store, price, date, dollarToShekel, receiveItem}) {
 
     return (
         <div className="item-box">
-            <div>{name}</div>
-            <div>{store}</div>
-            <div>{displayPrice(price)}{displayCashSymbol()}</div><button onClick={() => setShowShekel(!showShekel)}>CHANGE CURRENCY</button>
-            <div>{date}</div>
+            <div className="item-feild">{name}</div>
+            <div className="item-feild">{store}</div>
+            <div className="item-feild">{displayPrice(price)}{displayCashSymbol()}</div><button onClick={() => setShowShekel(!showShekel)}>CHANGE CURRENCY</button>
+            <div className="item-feild">{date}</div>
             <button onClick={() => receiveItem(currentItem)}>Received</button>
         </div>
     )

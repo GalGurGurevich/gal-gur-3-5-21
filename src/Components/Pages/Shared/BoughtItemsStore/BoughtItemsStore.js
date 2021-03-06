@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { groupBy, groupCompnayAndSum } from '../../../Helpers/aggregator'
-import { getAggregatedStore } from '../itemStoreSlice'
+import { groupBy, groupCompnayAndSum } from '../../../../Helpers/aggregator'
+import { getAggregatedStore } from '../../itemStoreSlice'
 import { connect } from 'react-redux'
 import './BoughtItemsStore.css'
 
