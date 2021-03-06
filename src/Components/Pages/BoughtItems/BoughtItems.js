@@ -4,30 +4,21 @@ import ItemCreator from '../Shared/ItemCreator'
 import { getCurrenyRates } from '../itemStoreSlice'
 import Item from '../Item/Item'
 
-function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel}) {
-
-    const [showShekel, setShowShekel] = useState(false);
+function BoughtItems({itemsInStore, getCurrenyRates, timeInterval}) {
 
     useEffect(() => {
         setTimeout(getCurrenyRates(), timeInterval);
     },[])
 
-    function displayPrice(price) {
-       return showShekel ? price * dollarToShekel : price
-    }
-
-    function displayCashSymbol() {
-       return showShekel ? '₪' : '$' 
-    }
-
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
             <div key={idx}>
                 <Item 
+                id = {item.id}
                 name={item.name} 
                 store={item.store}
                 price={item.price}
-                date={item.date}
+                date={item.deliveryAt}
                  />
             </div>
         )

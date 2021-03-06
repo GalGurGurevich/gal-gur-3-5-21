@@ -9,12 +9,12 @@ function ItemCreator({ addItem, id }) {
     const [name, setName] = useState("");
     const [store, setStore] = useState("");
     const minPrice = 1;
-    const maxPrice = 5001;
+    const maxPrice = 1001;
     const price = randomPriceGenerator(minPrice, maxPrice);
     const date = randomDateGenerator();
 
     function addCurrentItem() {
-        const item = { id, name, store, price, date };
+        const item = { id: id, name: name, store: store, price: price, deliveryAt: date };
         addItem(item);
     }
 

@@ -22,6 +22,11 @@ export const itemStoreSlice = createSlice({
       state.items = [...state.items, action.payload];
       state.itemIDCounter++;
     },
+    receiveItem: (state, action) => {
+      console.log("receiveItem", action.payload)
+      state.recivedItems = [...state.recivedItems, action.payload];
+      state.items = state.items.filter((item) => item.id !== action.payload.id);
+    }
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -31,6 +36,6 @@ export const itemStoreSlice = createSlice({
   }
 });
 
-export const { addItem, changeDisplayOfExchangeRate } = itemStoreSlice.actions;
+export const { addItem, changeDisplayOfExchangeRate, receiveItem } = itemStoreSlice.actions;
 
 export default itemStoreSlice.reducer;
