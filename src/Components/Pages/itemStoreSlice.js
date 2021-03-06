@@ -13,7 +13,7 @@ export const itemStoreSlice = createSlice({
     items: [],
     recivedItems: [],
     itemIDCounter: 0,
-    delayTimeBetweenAPICall: 100,
+    delayTimeBetweenAPICall: 10000,
     dollarToShekel: null,
     apiError: false,
   },

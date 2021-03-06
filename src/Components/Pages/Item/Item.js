@@ -1,10 +1,15 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { receiveItem } from '../itemStoreSlice'
 
 function Item({id , name, store, price, date, dollarToShekel, receiveItem}) {
+    
     const [showShekel, setShowShekel] = useState(false);
     const currentItem = { id: id, name: name, store: store, price: price, deliveryAt: date };
+
+    useEffect(() => {
+
+    },[dollarToShekel])
 
     function displayPrice(price) {
         return showShekel ? price * dollarToShekel : price

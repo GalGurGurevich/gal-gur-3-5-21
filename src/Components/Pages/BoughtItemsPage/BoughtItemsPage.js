@@ -5,10 +5,19 @@ import BoughtItemsStore from '../BoughtItemsStore/BoughtItemsStore'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 export default function BoughtItemsPage() {
+
+    const [selectedTab, setSelectedTab] = useState("ITEM_LIST");
+
+    function renderView(tab) {
+        
+    }
+
     return (
         <div>
-            Hellow from BoughtItemsPage
-            <BoughtItems />
+            <h3>Hellow from BoughtItemsPage</h3>
+            <button onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
+            <button onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
+            {selectedTab === "ITEM_LIST" ? <BoughtItems /> : <BoughtItemsStore /> }
         </div>
     )
 }
