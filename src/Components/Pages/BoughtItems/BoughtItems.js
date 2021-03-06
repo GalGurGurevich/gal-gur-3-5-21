@@ -5,7 +5,7 @@ import { getCurrenyRates } from '../itemStoreSlice'
 import Item from '../Item/Item'
 import './BoughtItems.css'
 
-function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel}) {
+function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel, shouldDisplayCreator}) {
 
     useEffect(() => {
         // first run only
@@ -35,7 +35,7 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
 
     return (
         <>
-            <ItemCreator />
+            { shouldDisplayCreator ? <ItemCreator /> : null }
             <br />
             {displayAllItems()}
         </>

@@ -12,7 +12,7 @@ export default function BoughtItemsPage() {
             <h3 className="boughtItemsPage-header">Hellow from BoughtItemsPage</h3>
             <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
             <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
-            {selectedTab === "ITEM_LIST" ? <BoughtItems /> : <BoughtItemsStore /> }
+            {selectedTab === "ITEM_LIST" ? <BoughtItems shouldDisplayCreator={true}/> : <BoughtItemsStore /> }
         </div>
     )
 }
