@@ -1,8 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import './Footer'
 
-function Footer({ apiError }) {
+export default function Footer({ apiError }) {
 
     return (
         <div className="footer-container">
@@ -10,11 +9,3 @@ function Footer({ apiError }) {
         </div>
     )
 }
-
-const mapStateToProps = state => ({
-    apiError: state.userItemCart.apiError,
-});
-
-export default connect(mapStateToProps, null)(Footer);
-
-

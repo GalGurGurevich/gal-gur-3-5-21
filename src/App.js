@@ -8,7 +8,7 @@ import { getCurrenyRates } from './redux/itemStoreSlice';
 import Footer from '../src/Components/Shared/Footer/Footer';
 import './App.css';
 
-function App({ getCurrenyRates, timeInterval }) {
+function App({ getCurrenyRates, timeInterval, apiError }) {
     useEffect(() => {
         getCurrenyRates();
         const interval = setInterval(getCurrenyRates, timeInterval);
@@ -31,7 +31,7 @@ function App({ getCurrenyRates, timeInterval }) {
                         <Redirect to="/boughtItemsPage" />
                     </Route>
                 </Switch>
-                <Footer />
+                <Footer apiError={apiError} />
             </div>
         </BrowserRouter>
     );
@@ -39,6 +39,7 @@ function App({ getCurrenyRates, timeInterval }) {
 
 const mapStateToProps = state => ({
     timeInterval: state.userItemCart.delayTimeBetweenAPICall,
+    apiError: state.userItemCart.apiError
 });
 
 const mapDispatchToProps = {
