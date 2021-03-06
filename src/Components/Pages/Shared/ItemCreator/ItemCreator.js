@@ -21,9 +21,9 @@ function ItemCreator({ addItem, id }) {
 
     return (
         <div className="item-creator-container">
-            <div className="labels">Name</div>
+            <div className="labels">Product Name:</div>
             <input type="text" onChange={(e) => setName(e.target.value)} />
-            <div className="labels">Store</div>
+            <div className="labels">Bought In Store:</div>
             <input type="text" onChange={(e) => setStore(e.target.value)}/>
             <button onClick={() => addCurrentItem()}>ADD ITEM</button>
         </div>

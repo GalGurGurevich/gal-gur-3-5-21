@@ -10,7 +10,6 @@ export function groupBy(objectArray, property) {
   }
 
 export function groupCompnayAndSum(obj) {
-  console.log("groupCompnayAndSum obj: ", obj)
     const output = []; 
     Object.entries(obj).forEach(entry => {
       const [key, value] = entry;
@@ -19,8 +18,6 @@ export function groupCompnayAndSum(obj) {
         total += value[i].price;
       }
     output.push({store: key, totalSum: total});
-    console.log("output: ", output)
   });
-  console.log("groupCompnayAndSum output: ", output)
   return output;
 }

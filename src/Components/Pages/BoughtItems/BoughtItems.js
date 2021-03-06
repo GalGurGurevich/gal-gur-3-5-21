@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import ItemCreator from '../Shared/ItemCreator/ItemCreator'
 import { getCurrenyRates } from '../itemStoreSlice'
-import Item from '../Item/Item'
+import Item from '../Shared/Item/Item'
 import './BoughtItems.css'
 
-function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel, shouldDisplayCreator}) {
+function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToShekel, shouldDisplayCreator, apiError}) {
 
     useEffect(() => {
         // first run only
@@ -17,6 +17,12 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
             getCurrenyRates()
         }, timeInterval);
     },[dollarToShekel])
+
+    useEffect(() => {
+        if(apiError === true) {
+            alert("Error! sorry server possibly down or currently unavailble, try again later...");
+        }
+    },[apiError])
 
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
@@ -45,7 +51,8 @@ function BoughtItems({itemsInStore, getCurrenyRates, timeInterval, dollarToSheke
 const mapStateToProps = (state) => ({
     itemsInStore: state.userItemCart.items,
     dollarToShekel: state.userItemCart.dollarToShekel,
-    timeInterval: state.userItemCart.delayTimeBetweenAPICall
+    timeInterval: state.userItemCart.delayTimeBetweenAPICall,
+    apiError: state.userItemCart.apiError
 })
 
 const mapDispatchToProps = {

@@ -14,7 +14,7 @@ function BoughtItemsStore({recivedItems, getAggregatedStore, aggregatedStore}) {
         const storeData = aggregatedStore.map((item, idx) =>
             <div key={idx} className="storeData-box">
                 <div>Store Name: {item.store}</div>
-                <div>Total Ravenue: {item.totalSum}</div>
+                <div>Total Ravenue: {item.totalSum}$</div>
             </div>)
         return storeData
     }
