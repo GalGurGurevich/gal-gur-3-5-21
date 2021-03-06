@@ -10,20 +10,29 @@ function ItemCreator({ addItem, id }) {
     const [date, setDate] = useState('');
 
     function addCurrentItem() {
+        if(name === "" || store === "" || date === "") return;
         const item = { id: id, name: name, store: store, price: price, deliveryAt: date };
         addItem(item);
+        resetStates();
+    }
+
+    function resetStates() {
+        setName('');
+        setStore('');
+        setPrice(0);
+        setDate('');
     }
 
     return (
         <div className='item-creator-container'>
             <div className='labels'>Product Name:</div>
-            <input type='text' onChange={e => setName(e.target.value)} />
+            <input type='text' onChange={e => setName(e.target.value)} value={name}/>
             <div className='labels'>Bought In Store:</div>
-            <input type='text' onChange={e => setStore(e.target.value)} />
+            <input type='text' onChange={e => setStore(e.target.value)} value={store}/>
             <div className='labels'>Price Paid:</div>
-            <input type='number' onChange={e => setPrice(+e.target.value)} />
+            <input type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
             <div className='labels'>Will Arive At:</div>
-            <input type='date' onChange={e => setDate(e.target.value)} />
+            <input type='date' onChange={e => setDate(e.target.value)} value={date}/>
             <button onClick={() => addCurrentItem()}>ADD ITEM</button>
         </div>
     );
