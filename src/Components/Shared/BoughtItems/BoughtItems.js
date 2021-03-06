@@ -25,7 +25,7 @@ export default function BoughtItems({itemsInStore, shouldDisplayCreator, canRece
         <>
             { shouldDisplayCreator ? <ItemCreator /> : null }
             <br />
-            {displayAllItems()}
+            {itemsInStore.length === 0 ? <div className="msg-container"><span className="msg-span">Nothing to display Really... o.O;</span></div> : displayAllItems()}
         </>
     )
 }

@@ -1,3 +1,10 @@
-.list-item-container {
-    
+.msg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.msg-span {
+    text-align: center;
 }
