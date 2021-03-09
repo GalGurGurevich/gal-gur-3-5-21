@@ -1,13 +1,26 @@
 .item-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0px;
-    width: 100%;
-    overflow: hidden;
+    display: inline-grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
 }
 
 .item-feild {
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+@media only screen and (max-width: 786px) {
+    .item-box {
+        display: block;
+    }
+    .item-feild {
+        border: unset;
+    }
+    button {
+        width: 100%;
+    }
 }

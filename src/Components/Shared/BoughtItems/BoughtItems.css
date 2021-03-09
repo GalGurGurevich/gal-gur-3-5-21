@@ -8,3 +8,9 @@
 .msg-span {
     text-align: center;
 }
+
+.list-item-container {
+    /* display: inline-grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px; */
+}
