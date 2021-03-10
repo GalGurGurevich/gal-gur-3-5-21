@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './ItemCreator.css';
 
 function ItemCreator({ addItem, id }) {
-    
+
     const [name, setName] = useState('');
     const [store, setStore] = useState('');
     const [price, setPrice] = useState(0);
@@ -50,7 +50,7 @@ function ItemCreator({ addItem, id }) {
             <input className="inputs" type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
             <div className='labels'>Will Arive At:</div>
             <input className="inputs" type='date' onChange={e => setDate(e.target.value)} value={date}/>
-            <button onClick={() => addCurrentItem()}>ADD ITEM</button>
+            <button className="add-item-btn" onClick={() => addCurrentItem()}>ADD ITEM</button>
         </div>
         {itemAdded ? errorMsg() : null }
         </>

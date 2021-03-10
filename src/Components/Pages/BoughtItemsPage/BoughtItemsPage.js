@@ -10,7 +10,7 @@ function BoughtItemsPage({itemsInStore}) {
 
     return (
         <div className="boughtItemsPage-root">
-            <h3 className="boughtItemsPage-header">Hello from BoughtItemsPage</h3>
+            <h3 className="boughtItemsPage-header">Your Bought Items</h3>
             <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
             <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={true} canReceive={true}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
