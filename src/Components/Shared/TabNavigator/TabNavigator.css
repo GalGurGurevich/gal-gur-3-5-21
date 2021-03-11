@@ -8,6 +8,8 @@
     padding: 0;
     display: flex;
     justify-content: space-around;
+    -webkit-box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.73); 
+    box-shadow: 0px 6px 33px -11px rgba(0,0,0,0.73);
 }
 
 .link {

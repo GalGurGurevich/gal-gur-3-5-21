@@ -6,8 +6,8 @@ export default function TabNavigator() {
     return (
         <div className="tabNavigator-root">
           <ul className="tab-ul">
-            <Link className="link" to="/boughtItemsPage">BoughtItemsPage</Link>
-            <Link className="link" to="/receivedListPage">ReceivedListPage</Link>
+            <Link className="link" to="/boughtItemsPage">Bought Items Page</Link>
+            <Link className="link" to="/receivedListPage">Received List Page</Link>
           </ul>
         </div>
     )
