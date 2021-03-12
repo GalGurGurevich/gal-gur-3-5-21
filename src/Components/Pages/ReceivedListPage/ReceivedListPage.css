@@ -2,14 +2,4 @@
     
 }
 
-.receivedListPage-header {
-    text-align: center;
-}
 
-.receivedListPage-btn {
-    justify-content: space-between;
-    width: 50%;
-    align-self: center;
-    background: darkturquoise;
-    cursor: pointer;
-}
