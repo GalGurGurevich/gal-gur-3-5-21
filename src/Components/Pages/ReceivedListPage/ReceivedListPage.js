@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import BoughtItemsStore from '../../Shared/BoughtItemsStore/BoughtItemsStore'
 import BoughtItems from '../../Shared/BoughtItems/BoughtItems'
+import Header from '../../Shared/PagesCommonParts/Header/Header'
+import Button from '../../Shared/PagesCommonParts/Button/Button'
 import { connect } from 'react-redux'
 import './ReceivedListPage.css'
 
@@ -10,9 +12,9 @@ function ReceivedListPage({itemsInStore}) {
 
     return (
         <div className="receivedListPage-root">
-            <h3 className="receivedListPage-header">Your Received Itmes</h3>
-            <button className="receivedListPage-btn" onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
-            <button className="receivedListPage-btn" onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
+            <Header txt={"Your Received Itmes"}/>
+            <Button func={() => setSelectedTab("ITEM_LIST")} txt={"VIEW ITEM LIST"}/>
+            <Button func={() => setSelectedTab("STORE_LIST")} txt={"VIEW STORE LIST"}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={false} canReceive={false}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
         </div>
     )

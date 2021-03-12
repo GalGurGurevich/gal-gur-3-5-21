@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import BoughtItems from '../../Shared/BoughtItems/BoughtItems'
 import BoughtItemsStore from '../../Shared/BoughtItemsStore/BoughtItemsStore'
+import Header from '../../Shared/PagesCommonParts/Header/Header'
+import Button from '../../Shared/PagesCommonParts/Button/Button'
 import { connect } from 'react-redux'
 import './BoughtItemsPage.css'
 
@@ -10,9 +12,9 @@ function BoughtItemsPage({itemsInStore}) {
 
     return (
         <div className="boughtItemsPage-root">
-            <h3 className="boughtItemsPage-header">Your Bought Items</h3>
-            <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("ITEM_LIST")}>VIEW ITEM LIST</button>
-            <button className="boughtItemsPage-btn" onClick={() => setSelectedTab("STORE_LIST")}>VIEW STORE LIST</button>
+            <Header txt={"Your Bought Items"}/>
+            <Button func={() => setSelectedTab("ITEM_LIST")} txt={"VIEW ITEM LIST"}/>
+            <Button func={() => setSelectedTab("STORE_LIST")} txt={"VIEW STORE LIST"}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={true} canReceive={true}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
         </div>
     )
