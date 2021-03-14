@@ -4,4 +4,6 @@ export default {
     itemPriceLabel: 'Price Paid',
     itemDateLabel: 'Will Arrive At',
     itemAddBtn: 'Add Item',
+    BoughtItemsPageHeader: 'Bought Items Page',
+    ReceivedListPageHeader: 'Received List Page'
 }
