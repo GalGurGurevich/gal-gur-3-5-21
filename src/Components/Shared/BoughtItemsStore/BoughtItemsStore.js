@@ -20,7 +20,7 @@ export default function BoughtItemsStore({ itemsInStore }) {
     return (
         <>
             <h3 className='boughtItemsStore-header'>Bought Items Store</h3>
-            {displayStore()}
+            {itemsInStore.length === 0 ? <p className="p-txt-no-items">Nothing to show really...o.O;</p> : displayStore()}
         </>
     );
 }

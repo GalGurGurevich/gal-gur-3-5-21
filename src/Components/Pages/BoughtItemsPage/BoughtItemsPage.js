@@ -13,6 +13,7 @@ function BoughtItemsPage({itemsInStore}) {
     return (
         <div className="boughtItemsPage-root">
             <Header txt={"Your Bought Items"}/>
+            {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לראות ולהוסיף מוצרים אשר הזמנתם וקיבלתם</p> : <p className="info-p">כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות</p>}
             <Button func={() => setSelectedTab("ITEM_LIST")} txt={"VIEW ITEM LIST"}/>
             <Button func={() => setSelectedTab("STORE_LIST")} txt={"VIEW STORE LIST"}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={true} canReceive={true}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }

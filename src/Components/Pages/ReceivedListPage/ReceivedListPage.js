@@ -13,6 +13,7 @@ function ReceivedListPage({itemsInStore}) {
     return (
         <div className="receivedListPage-root">
             <Header txt={"Your Received Itmes"}/>
+            {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לצפות במוצרים אשר הזמנתם וקיבלתם</p> : <p className="info-p">כאן רואים את סך כל ההזמנות מכל חנות</p>}
             <Button func={() => setSelectedTab("ITEM_LIST")} txt={"VIEW ITEM LIST"}/>
             <Button func={() => setSelectedTab("STORE_LIST")} txt={"VIEW STORE LIST"}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={false} canReceive={false}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
