@@ -17,6 +17,7 @@ export const itemStoreSlice = createSlice({
         delayTimeBetweenAPICall: timeInterval,
         dollarToShekel: null,
         apiError: false,
+        language: 'HEB'
     },
     reducers: {
         addItem: (state, action) => {
@@ -26,6 +27,9 @@ export const itemStoreSlice = createSlice({
         receiveItem: (state, action) => {
             state.receivedItems = [...state.receivedItems, action.payload];
             state.items = state.items.filter(item => item.id !== action.payload.id);
+        },
+        changeAppLang: (state, action) => {
+            state.language = action.payload;
         }
     },
     extraReducers: {
@@ -40,6 +44,6 @@ export const itemStoreSlice = createSlice({
     },
 });
 
-export const { addItem, changeDisplayOfExchangeRate, receiveItem } = itemStoreSlice.actions;
+export const { addItem, changeDisplayOfExchangeRate, receiveItem, changeAppLang } = itemStoreSlice.actions;
 
 export default itemStoreSlice.reducer;

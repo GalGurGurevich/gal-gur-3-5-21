@@ -1,11 +1,31 @@
 import React from 'react'
-import './Footer'
+import { connect } from 'react-redux';
+import { changeAppLang } from '../../../redux/itemStoreSlice';
+import './Footer.css'
 
-export default function Footer({ apiError }) {
+function Footer({ apiError, changeAppLang, lan }) {
+
+    function updateLan(choice) {
+        changeAppLang(choice)
+    }
 
     return (
         <div className="footer-container">
+            <select onChange={(e) => updateLan(e.target.value)}>
+                <option value="HEB" selected>HEB</option>
+                <option value="EN">EN</option>
+            </select>
             {apiError && <span className="error-span">Oops! Sorry service currently unavailble! will try again soon :)</span>}
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+  lan: state.userItemCart.language
+});
+
+const mapDispatchToProps = {
+    changeAppLang,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

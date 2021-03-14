@@ -13,7 +13,7 @@ function BoughtItemsPage({itemsInStore}) {
     return (
         <div className="boughtItemsPage-root">
             <Header txt={"עמוד מוצרים שנקנו ובדרך אליכם"}/>
-            {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לראות ולהוסיף מוצרים אשר הזמנתם וקיבלתם</p> : <p className="info-p">כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות</p>}
+            {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לראות ולהוסיף מוצרים אשר הזמנתם</p> : <p className="info-p">כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות</p>}
             <Button func={() => setSelectedTab("ITEM_LIST")} txt={"צפייה במוצרים"}/>
             <Button func={() => setSelectedTab("STORE_LIST")} txt={"צפייה לפי חנות"}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={true} canReceive={true}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
@@ -22,7 +22,8 @@ function BoughtItemsPage({itemsInStore}) {
 }
 
 const mapStateToProps = (state) => ({
-    itemsInStore: state.userItemCart.items
+    itemsInStore: state.userItemCart.items,
+    language: state.userItemCart.language
 })
 
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { addItem } from '../../../redux/itemStoreSlice';
 import { connect } from 'react-redux';
+import translator from '../../../Helpers/translator'
 import './ItemCreator.css';
 
-function ItemCreator({ addItem, id }) {
+function ItemCreator({ addItem, id, lang }) {
 
     const [name, setName] = useState('');
     const [store, setStore] = useState('');
@@ -42,15 +43,15 @@ function ItemCreator({ addItem, id }) {
     return (
         <>
         <div className='item-creator-container'>
-            <div className='labels'>שם מוצר:</div>
+            <div className='labels'>{translator(lang, 'itemNameLabel')}</div>
             <input className="inputs" type='text' onChange={e => setName(e.target.value)} value={name}/>
-            <div className='labels'>נקנה ב:</div>
+            <div className='labels'>{translator(lang, 'itemCompanyLabel')}</div>
             <input className="inputs" type='text' onChange={e => setStore(e.target.value)} value={store}/>
-            <div className='labels'>מחיר שולם:</div>
+            <div className='labels'>{translator(lang, 'itemPriceLabel')}</div>
             <input className="inputs" type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
-            <div className='labels'>המוצר יגיע ב:</div>
+            <div className='labels'>{translator(lang, 'itemDateLabel')}</div>
             <input className="inputs" type='date' onChange={e => setDate(e.target.value)} value={date}/>
-            <button className="add-item-btn" onClick={() => addCurrentItem()}>הוסף מוצר</button>
+            <button className="add-item-btn" onClick={() => addCurrentItem()}>{translator(lang, 'itemAddBtn')}</button>
         </div>
         {itemAdded ? errorMsg() : null }
         </>
@@ -59,6 +60,7 @@ function ItemCreator({ addItem, id }) {
 
 const mapStateToProps = state => ({
     id: state.userItemCart.itemIDCounter,
+    lang: state.userItemCart.language
 });
 
 const mapDispatchToProps = {
