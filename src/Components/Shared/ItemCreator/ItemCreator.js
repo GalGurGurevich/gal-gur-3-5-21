@@ -29,28 +29,28 @@ function ItemCreator({ addItem, id }) {
 
     function errorMsg() {
         if(name === "") {
-            return <span className="error-msg">Oops, You missing product Name...</span>
+            return <span className="error-msg">אופס, חסר שם מוצר</span>
         }
         if(store === "") {
-            return <span className="error-msg">Oops, You missing store Name...</span>
+            return <span className="error-msg">אופס, חסר שם החנות</span>
         }
         if(date === "") {
-            return <span className="error-msg">Oops, You missing date when the product should arrive...</span>
+            return <span className="error-msg">אופס, חסר תאריך הגעה משוער</span>
         }
     }
 
     return (
         <>
         <div className='item-creator-container'>
-            <div className='labels'>Product Name:</div>
+            <div className='labels'>שם מוצר:</div>
             <input className="inputs" type='text' onChange={e => setName(e.target.value)} value={name}/>
-            <div className='labels'>Bought In Store:</div>
+            <div className='labels'>נקנה ב:</div>
             <input className="inputs" type='text' onChange={e => setStore(e.target.value)} value={store}/>
-            <div className='labels'>Price Paid:</div>
+            <div className='labels'>מחיר שולם:</div>
             <input className="inputs" type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
-            <div className='labels'>Will Arive At:</div>
+            <div className='labels'>המוצר יגיע ב:</div>
             <input className="inputs" type='date' onChange={e => setDate(e.target.value)} value={date}/>
-            <button className="add-item-btn" onClick={() => addCurrentItem()}>ADD ITEM</button>
+            <button className="add-item-btn" onClick={() => addCurrentItem()}>הוסף מוצר</button>
         </div>
         {itemAdded ? errorMsg() : null }
         </>

@@ -26,9 +26,9 @@ function Item({id , name, store, price, date, dollarToShekel, receiveItem, canRe
         <div className="item-box">
             <div className="item-feild">{name}</div>
             <div className="item-feild">{store}</div>
-            <div className="item-feild">{displayPrice(price)}{displayCashSymbol()}</div><button disabled={apiError} onClick={() => setShowShekel(!showShekel)}>CHANGE CURRENCY</button>
+            <div className="item-feild">{displayPrice(price)}{displayCashSymbol()}</div><button disabled={apiError} onClick={() => setShowShekel(!showShekel)}>שנה מטבע</button>
             <div className="item-feild">{date}</div>
-            {canReceive ? <button onClick={() => receiveItem(currentItem)}>Received</button> : null }
+            {canReceive ? <button onClick={() => receiveItem(currentItem)}>כבר קיבלתי!</button> : null }
         </div>
     )
 }
