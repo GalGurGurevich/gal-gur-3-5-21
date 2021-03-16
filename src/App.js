@@ -8,7 +8,7 @@ import { getCurrenyRates } from './redux/itemStoreSlice';
 import Footer from '../src/Components/Shared/Footer/Footer';
 import './App.css';
 
-function App({ getCurrenyRates, timeInterval, apiError }) {
+function App({ getCurrenyRates, timeInterval, apiError, lang }) {
     useEffect(() => {
         getCurrenyRates();
         const interval = setInterval(getCurrenyRates, timeInterval);
@@ -18,7 +18,7 @@ function App({ getCurrenyRates, timeInterval, apiError }) {
 
     return (
         <BrowserRouter>
-            <div className='app'>
+            <div className={`app${lang === "HEB" ? ' heb' : ''}`}>
                 <TabNavigator />
                 <Switch>
                     <Route path='/receivedListPage'>
@@ -39,7 +39,8 @@ function App({ getCurrenyRates, timeInterval, apiError }) {
 
 const mapStateToProps = state => ({
     timeInterval: state.userItemCart.delayTimeBetweenAPICall,
-    apiError: state.userItemCart.apiError
+    apiError: state.userItemCart.apiError,
+    lang: state.userItemCart.language
 });
 
 const mapDispatchToProps = {

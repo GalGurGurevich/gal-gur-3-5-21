@@ -11,7 +11,7 @@ function Footer({ apiError, changeAppLang, lan }) {
 
     return (
         <div className="footer-container">
-            <select onChange={(e) => updateLan(e.target.value)}>
+            <select className="lan-select" onChange={(e) => updateLan(e.target.value)}>
                 <option value="HEB" selected>HEB</option>
                 <option value="EN">EN</option>
             </select>
