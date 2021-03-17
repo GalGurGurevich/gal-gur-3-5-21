@@ -5,6 +5,7 @@
     align-items: center;
     width: 25%;
     margin: auto;
+    margin-top: 10px;
 }
 
 .labels {
@@ -47,7 +48,6 @@
     .item-creator-container {
         padding: 0px 10px;
         width: 95%;
-        margin: unset;
     }
     .inputs {
         width: 100%;
