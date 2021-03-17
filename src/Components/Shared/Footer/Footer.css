@@ -1,14 +1,14 @@
 .footer-container {
     display: flex;
-    position: fixed;
-    bottom: 0;
-    height: 10%;
+    justify-content: flex-start;
 }
+
+
 
 .error-span {
     color: red;
 }
 
 .lan-select {
-    
+
 }

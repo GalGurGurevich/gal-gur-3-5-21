@@ -26,23 +26,6 @@
     margin: 5px 0px;
 }
 
-.add-item-btn {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    background: transparent;
-    border: blue solid 1px;
-    color: blue;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 90%;
-}
-
-.add-item-btn:hover {
-    background: blue;
-    color: white;
-    transition: background-color 0.5s ease;
-}
 
 @media only screen and (max-width: 786px) {
     .item-creator-container {

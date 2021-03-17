@@ -5,5 +5,7 @@ export default {
     itemDateLabel: 'המוצר יגיע ב:',
     itemAddBtn: 'הוסף מוצר',
     BoughtItemsPageHeader: 'עמוד מוצרים שנקנו ובדרך אליכם',
-    ReceivedListPageHeader: 'עמוד מוצרים שהתקבלו'
+    ReceivedListPageHeader: 'עמוד מוצרים שהתקבלו',
+    itemBtn: 'כבר קיבלתי',
+    changeCurrencyText: 'שנה מטבע'
 }

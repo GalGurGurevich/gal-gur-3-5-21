@@ -22,7 +22,7 @@ function Footer({ apiError, changeAppLang }) {
 }
 
 const mapStateToProps = state => ({
-
+    
 });
 
 const mapDispatchToProps = {

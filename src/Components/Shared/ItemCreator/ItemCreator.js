@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { addItem } from '../../../redux/itemStoreSlice';
 import { connect } from 'react-redux';
+import SecondryButton from '../PagesCommonParts/Button/SeconderyButton'
+import InputFields from './ItemForm';
 import translator from '../../../Helpers/translator'
 import './ItemCreator.css';
 
@@ -11,6 +13,12 @@ function ItemCreator({ addItem, id, lang }) {
     const [price, setPrice] = useState(0);
     const [date, setDate] = useState('');
     const [itemAdded, setItemAdded] = useState(false);
+
+    const itemNameLabel = translator(lang, 'itemNameLabel');
+    const itemStoreLabel = translator(lang, 'itemCompanyLabel')
+    const itemPriceLabel = translator(lang, 'itemPriceLabel')
+    const itemDateLabel = translator(lang, 'itemDateLabel')
+    const btnTxt = translator(lang, 'itemAddBtn');
 
     function addCurrentItem() {
         setItemAdded(true);
@@ -43,15 +51,21 @@ function ItemCreator({ addItem, id, lang }) {
     return (
         <>
         <div className='item-creator-container'>
-            <div className='labels'>{translator(lang, 'itemNameLabel')}</div>
-            <input className="inputs" type='text' onChange={e => setName(e.target.value)} value={name}/>
-            <div className='labels'>{translator(lang, 'itemCompanyLabel')}</div>
-            <input className="inputs" type='text' onChange={e => setStore(e.target.value)} value={store}/>
-            <div className='labels'>{translator(lang, 'itemPriceLabel')}</div>
-            <input className="inputs" type='number' onChange={e => setPrice(+e.target.value)} value={price}/>
-            <div className='labels'>{translator(lang, 'itemDateLabel')}</div>
-            <input className="inputs" type='date' onChange={e => setDate(e.target.value)} value={date}/>
-            <button className="add-item-btn" onClick={() => addCurrentItem()}>{translator(lang, 'itemAddBtn')}</button>
+            <InputFields 
+            setName={setName}
+            setStore={setStore}
+            setPrice={setPrice}
+            setDate={setDate}
+            nameLbl={itemNameLabel}
+            storeLbl={itemStoreLabel}
+            priceLbl={itemPriceLabel}
+            dateLbl={itemDateLabel}
+            name={name}
+            store={store}
+            price={price}
+            date={date}
+            />
+            <SecondryButton func={addCurrentItem} txt={btnTxt}></SecondryButton>
         </div>
         {itemAdded ? errorMsg() : null }
         </>

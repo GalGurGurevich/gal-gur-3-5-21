@@ -5,5 +5,7 @@ export default {
     itemDateLabel: 'Will Arrive At',
     itemAddBtn: 'Add Item',
     BoughtItemsPageHeader: 'Bought Items Page',
-    ReceivedListPageHeader: 'Received List Page'
+    ReceivedListPageHeader: 'Received List Page',
+    itemBtn: 'I got it',
+    changeCurrencyText: 'change currency'
 }
