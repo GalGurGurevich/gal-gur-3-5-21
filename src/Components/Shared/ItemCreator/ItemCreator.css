@@ -3,10 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 25%;
+    margin: auto;
 }
 
 .labels {
     font-weight: bold;
+    align-self: flex-start;
+}
+
+.inputs {
+    width: 100%;
 }
 
 .error-msg {
@@ -19,13 +26,15 @@
 }
 
 .add-item-btn {
-    margin: 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     background: transparent;
     border: blue solid 1px;
     color: blue;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    width: 90%;
 }
 
 .add-item-btn:hover {
@@ -37,6 +46,8 @@
 @media only screen and (max-width: 786px) {
     .item-creator-container {
         padding: 0px 10px;
+        width: 95%;
+        margin: unset;
     }
     .inputs {
         width: 100%;
