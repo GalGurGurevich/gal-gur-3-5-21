@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { changeAppLang } from '../../../redux/itemStoreSlice';
 import './Footer.css'
 
-function Footer({ apiError, changeAppLang, lan }) {
+function Footer({ apiError, changeAppLang }) {
 
     function updateLan(choice) {
         changeAppLang(choice)
@@ -12,8 +12,8 @@ function Footer({ apiError, changeAppLang, lan }) {
     return (
         <div className="footer-container">
             <select className="lan-select" onChange={(e) => updateLan(e.target.value)}>
-                <option value="HEB" selected>HEB</option>
-                <option value="EN">EN</option>
+                <option value="HEB" selected>עברית</option>
+                <option value="EN">English</option>
             </select>
             {apiError && <span className="error-span">Oops! Sorry service currently unavailble! will try again soon :)</span>}
         </div>
@@ -21,7 +21,7 @@ function Footer({ apiError, changeAppLang, lan }) {
 }
 
 const mapStateToProps = state => ({
-  lan: state.userItemCart.language
+
 });
 
 const mapDispatchToProps = {
