@@ -7,5 +7,10 @@ export default {
     BoughtItemsPageHeader: 'עמוד מוצרים שנקנו ובדרך אליכם',
     ReceivedListPageHeader: 'עמוד מוצרים שהתקבלו',
     itemBtn: 'כבר קיבלתי',
-    changeCurrencyText: 'שנה מטבע'
+    changeCurrencyText: 'שנה מטבע',
+    tabNavBoughtItemsPage: 'מוצרים בדרך',
+    tabNavReceivedListPage: 'מוצרים כבר כאן',
+    buttonPageItemListTitle: 'צפייה במוצרים',
+    buttonPageStoreListTitle: 'צפייה לפי חנות'
+
 }

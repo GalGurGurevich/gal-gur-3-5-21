@@ -10,13 +10,15 @@ import './ReceivedListPage.css'
 function ReceivedListPage({itemsInStore, lang}) {
 
     const [selectedTab, setSelectedTab] = useState("ITEM_LIST");
+    const itemListTitle = translator(lang, 'buttonPageItemListTitle');
+    const itemStoreTitle = translator(lang, 'buttonPageStoreListTitle');
 
     return (
         <div className="receivedListPage-root">
             <Header txt={translator(lang, "ReceivedListPageHeader")}/>
             {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לצפות במוצרים אשר הזמנתם וקיבלתם</p> : <p className="info-p">כאן רואים את סך כל ההזמנות מכל חנות</p>}
-            <Button func={() => setSelectedTab("ITEM_LIST")} txt={"צפייה במוצרים"}/>
-            <Button func={() => setSelectedTab("STORE_LIST")} txt={"צפייה לפי חנות"}/>
+            <Button func={() => setSelectedTab("ITEM_LIST")} txt={itemListTitle}/>
+            <Button func={() => setSelectedTab("STORE_LIST")} txt={itemStoreTitle}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={false} canReceive={false}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }
         </div>
     )

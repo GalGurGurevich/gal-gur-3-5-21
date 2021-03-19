@@ -18,6 +18,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import translator from '../../../Helpers/translator'
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TabNavigator() {
+function TabNavigator({lang}) {
   const classes = useStyles();
 
   return (
@@ -42,13 +44,19 @@ export default function TabNavigator() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Link className="link" to="/boughtItemsPage">מוצרים בדרך</Link>
+            <Link className="link" to="/boughtItemsPage">{translator(lang, 'tabNavBoughtItemsPage')}</Link>
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            <Link className="link" to="/receivedListPage">מוצרים כבר כאן</Link>
+            <Link className="link" to="/receivedListPage">{translator(lang, 'tabNavReceivedListPage')}</Link>
           </Typography>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  lang: state.userItemCart.language
+});
+
+export default connect(mapStateToProps, null)(TabNavigator);
