@@ -14,12 +14,6 @@ function ItemCreator({ addItem, id, lang }) {
     const [date, setDate] = useState('');
     const [itemAdded, setItemAdded] = useState(false);
 
-    const itemNameLabel = translator(lang, 'itemNameLabel');
-    const itemStoreLabel = translator(lang, 'itemCompanyLabel')
-    const itemPriceLabel = translator(lang, 'itemPriceLabel')
-    const itemDateLabel = translator(lang, 'itemDateLabel')
-    const btnTxt = translator(lang, 'itemAddBtn');
-
     function addCurrentItem() {
         setItemAdded(true);
         if(name === "" || store === "" || date === "") return;
@@ -56,16 +50,16 @@ function ItemCreator({ addItem, id, lang }) {
             setStore={setStore}
             setPrice={setPrice}
             setDate={setDate}
-            nameLbl={itemNameLabel}
-            storeLbl={itemStoreLabel}
-            priceLbl={itemPriceLabel}
-            dateLbl={itemDateLabel}
+            nameLbl={translator(lang, 'itemNameLabel')}
+            storeLbl={translator(lang, 'itemCompanyLabel')}
+            priceLbl={translator(lang, 'itemPriceLabel')}
+            dateLbl={translator(lang, 'itemDateLabel')}
             name={name}
             store={store}
             price={price}
             date={date}
             />
-            <SecondryButton func={addCurrentItem} txt={btnTxt}></SecondryButton>
+            <SecondryButton func={addCurrentItem} txt={translator(lang, 'itemAddBtn')}></SecondryButton>
         </div>
         {itemAdded ? errorMsg() : null }
         </>
