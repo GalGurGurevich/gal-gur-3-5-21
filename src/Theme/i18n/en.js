@@ -12,7 +12,7 @@ export default {
     tabNavReceivedListPage: 'item already arrived',
     buttonPageItemListTitle: 'display all items',
     buttonPageStoreListTitle: 'display items by store',
-    nothingToDisplayMsg: 'nothing to dusplay really...o.O;',
+    nothingToDisplayMsg: 'nothing to display really...o.O;',
     paragraphItemListTxt: 'here you can see items ordered online and recieved',
     paragraphStoreListTxt: 'see all orders group by store',
     boughtItemsItemListText: 'here you can watch and add items bought onilne',
