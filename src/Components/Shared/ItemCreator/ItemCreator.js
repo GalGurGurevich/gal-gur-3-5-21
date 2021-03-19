@@ -10,7 +10,7 @@ function ItemCreator({ addItem, id, lang }) {
 
     const [name, setName] = useState('');
     const [store, setStore] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState('');
     const [date, setDate] = useState('');
     const [itemAdded, setItemAdded] = useState(false);
 
@@ -31,7 +31,7 @@ function ItemCreator({ addItem, id, lang }) {
     function resetStates() {
         setName('');
         setStore('');
-        setPrice(0);
+        setPrice('');
         setDate('');
         setItemAdded(false);
     }

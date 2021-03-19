@@ -11,6 +11,10 @@ export default {
     tabNavBoughtItemsPage: 'מוצרים בדרך',
     tabNavReceivedListPage: 'מוצרים כבר כאן',
     buttonPageItemListTitle: 'צפייה במוצרים',
-    buttonPageStoreListTitle: 'צפייה לפי חנות'
-
+    buttonPageStoreListTitle: 'צפייה לפי חנות',
+    nothingToDisplayMsg: 'אין מה להציג באמת... ם.ם;',
+    paragraphItemListTxt: 'כאן תוכלו לצפות במוצרים אשר הזמנתם וקיבלתם',
+    paragraphStoreListTxt: 'כאן רואים את סך כל ההזמנות מכל חנות',
+    boughtItemsItemListText: 'כאן תוכלו לראות ולהוסיף מוצרים אשר הזמנתם',
+    boughtItemsStoreListText: 'כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות'
 }

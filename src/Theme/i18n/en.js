@@ -11,5 +11,10 @@ export default {
     tabNavBoughtItemsPage: 'items on they way',
     tabNavReceivedListPage: 'item already arrived',
     buttonPageItemListTitle: 'display all items',
-    buttonPageStoreListTitle: 'display items by store'
+    buttonPageStoreListTitle: 'display items by store',
+    nothingToDisplayMsg: 'nothing to dusplay really...o.O;',
+    paragraphItemListTxt: 'here you can see items ordered online and recieved',
+    paragraphStoreListTxt: 'see all orders group by store',
+    boughtItemsItemListText: 'here you can watch and add items bought onilne',
+    boughtItemsStoreListText: 'here you can see all orders yet arrived from wich store'
 }

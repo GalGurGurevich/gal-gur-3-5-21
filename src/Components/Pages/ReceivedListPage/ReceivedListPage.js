@@ -16,7 +16,7 @@ function ReceivedListPage({itemsInStore, lang}) {
     return (
         <div className="receivedListPage-root">
             <Header txt={translator(lang, "ReceivedListPageHeader")}/>
-            {selectedTab === "ITEM_LIST" ? <p className="info-p">כאן תוכלו לצפות במוצרים אשר הזמנתם וקיבלתם</p> : <p className="info-p">כאן רואים את סך כל ההזמנות מכל חנות</p>}
+            {selectedTab === "ITEM_LIST" ? <p className="info-p">{translator(lang, 'paragraphItemListTxt')}</p> : <p className="info-p">{translator(lang, 'paragraphStoreListTxt')}</p>}
             <Button func={() => setSelectedTab("ITEM_LIST")} txt={itemListTitle}/>
             <Button func={() => setSelectedTab("STORE_LIST")} txt={itemStoreTitle}/>
             {selectedTab === "ITEM_LIST" ? <BoughtItems itemsInStore={itemsInStore} shouldDisplayCreator={false} canReceive={false}/> : <BoughtItemsStore itemsInStore={itemsInStore}/> }

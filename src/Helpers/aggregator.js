@@ -15,9 +15,9 @@ export function groupCompnayAndSum(obj) {
       const [key, value] = entry;
       let total = 0;
       for(let i = 0; i < value.length; i++) {
-        total += value[i].price;
+        total += Number(value[i].price);
       }
-    output.push({store: key, totalSum: +total});
+    output.push({store: key, totalSum: total});
   });
   return output;
 }

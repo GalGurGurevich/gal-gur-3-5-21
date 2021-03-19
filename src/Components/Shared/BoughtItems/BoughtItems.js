@@ -1,9 +1,11 @@
 import React from 'react'
 import ItemCreator from '../ItemCreator/ItemCreator'
 import Item from '../Item/Item'
+import translator from '../../../Helpers/translator'
+import { connect } from 'react-redux'
 import './BoughtItems.css'
 
-export default function BoughtItems({itemsInStore, shouldDisplayCreator, canReceive}) {
+function BoughtItems({ itemsInStore, shouldDisplayCreator, canReceive, lang }) {
 
     function displayAllItems() {
         const listItems = itemsInStore.map((item, idx) =>
@@ -25,7 +27,15 @@ export default function BoughtItems({itemsInStore, shouldDisplayCreator, canRece
         <>
             { shouldDisplayCreator ? <ItemCreator /> : null }
             <br />
-            {itemsInStore.length === 0 ? <div className="msg-container"><span className="msg-span">אין מה להציג באמת... ם.ם;</span></div> : <div className="all-items-bottom-container">{displayAllItems()}</div>}
+            {itemsInStore.length === 0 ? <div className="msg-container"><span className="msg-span">{translator(lang, 'nothingToDisplayMsg')}</span></div> : <div className="all-items-bottom-container">{displayAllItems()}</div>}
         </>
     )
 }
+
+const mapStateToProps = (state) => ({
+    lang: state.userItemCart.language
+})
+
+export default connect(
+    mapStateToProps, null
+)(BoughtItems);

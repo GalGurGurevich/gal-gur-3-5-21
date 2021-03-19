@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import translator from '../../../Helpers/translator'
 import { groupBy, groupCompnayAndSum } from '../../../Helpers/aggregator';
 import './BoughtItemsStore.css';
 
-export default function BoughtItemsStore({ itemsInStore }) {
+function BoughtItemsStore({ itemsInStore, lang }) {
 
     const groups = groupBy(itemsInStore, 'store');
     const aggregatedStore = groupCompnayAndSum(groups);
@@ -20,8 +22,21 @@ export default function BoughtItemsStore({ itemsInStore }) {
     return (
         <>
             <h3 className='boughtItemsStore-header'>רשימת סך הקניות לפי חנות</h3>
-            {itemsInStore.length === 0 ? <p className="p-txt-no-items">אין מה להציג באמת... ם.ם;</p> : displayStore()}
+            {itemsInStore.length === 0 ? <p className="p-txt-no-items">{translator(lang, 'nothingToDisplayMsg')}</p> : displayStore()}
         </>
     );
 }
+
+const mapStateToProps = state => ({
+    lang: state.userItemCart.language
+});
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, null)(BoughtItemsStore);
+
+
+
 
