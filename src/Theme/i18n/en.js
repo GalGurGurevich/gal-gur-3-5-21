@@ -16,5 +16,8 @@ export default {
     paragraphItemListTxt: 'here you can see items ordered online and recieved',
     paragraphStoreListTxt: 'see all orders group by store',
     boughtItemsItemListText: 'here you can watch and add items bought onilne',
-    boughtItemsStoreListText: 'here you can see all orders yet arrived from wich store'
+    boughtItemsStoreListText: 'here you can see all orders yet arrived from wich store',
+    errorDisplayItemName: 'oops, item name missing',
+    errorDisplayStoreName: 'oops, item store missing',
+    errorDisplayDateName: 'oops, item arrival date missing'
 }

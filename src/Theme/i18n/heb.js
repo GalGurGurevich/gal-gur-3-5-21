@@ -16,5 +16,8 @@ export default {
     paragraphItemListTxt: 'כאן תוכלו לצפות במוצרים אשר הזמנתם וקיבלתם',
     paragraphStoreListTxt: 'כאן רואים את סך כל ההזמנות מכל חנות',
     boughtItemsItemListText: 'כאן תוכלו לראות ולהוסיף מוצרים אשר הזמנתם',
-    boughtItemsStoreListText: 'כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות'
+    boughtItemsStoreListText: 'כאן רואים את כל ההזמנות שטרם הגיעו מכל חנות',
+    errorDisplayItemName: 'אופס, חסר שם מוצר',
+    errorDisplayStoreName: 'אופס, חסר שם החנות',
+    errorDisplayDateName: 'אופס, חסר תאריך הגעה משוער'
 }

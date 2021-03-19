@@ -38,13 +38,13 @@ function ItemCreator({ addItem, id, lang }) {
 
     function errorMsg() {
         if(name === "") {
-            return <span className="error-msg">אופס, חסר שם מוצר</span>
+            return <span className="error-msg">{translator(lang, 'errorDisplayItemName')}</span>
         }
         if(store === "") {
-            return <span className="error-msg">אופס, חסר שם החנות</span>
+            return <span className="error-msg">{translator(lang, 'errorDisplayStoreName')}</span>
         }
         if(date === "") {
-            return <span className="error-msg">אופס, חסר תאריך הגעה משוער</span>
+            return <span className="error-msg">{translator(lang, 'errorDisplayDateName')}</span>
         }
     }
 
