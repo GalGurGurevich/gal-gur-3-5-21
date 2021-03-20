@@ -6,9 +6,11 @@ import TabNavigator from './Components/Shared/TabNavigator/TabNavigator';
 import { connect } from 'react-redux';
 import { getCurrenyRates } from './redux/itemStoreSlice';
 import Footer from '../src/Components/Shared/Footer/Footer';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 
 function App({ getCurrenyRates, timeInterval, apiError, lang }) {
+
     useEffect(() => {
         getCurrenyRates();
         const interval = setInterval(getCurrenyRates, timeInterval);
@@ -16,24 +18,34 @@ function App({ getCurrenyRates, timeInterval, apiError, lang }) {
         return () => clearInterval(interval);
     }, [getCurrenyRates, timeInterval]);
 
+    const theme = createMuiTheme({
+        direction: 'rtl',
+      });
+
+    const seconderyTheme = createMuiTheme({
+      direction: 'ltr',
+    });
+
     return (
-        <BrowserRouter>
-            <div className={`app${lang === "HEB" ? ' heb' : ''}`}>
-                <TabNavigator />
-                <Switch>
-                    <Route path='/receivedListPage'>
-                        <ReceivedListPage />
-                    </Route>
-                    <Route path='/boughtItemsPage'>
-                        <BoughtItemsPage />
-                    </Route>
-                    <Route path="/" exact>
-                        <Redirect to="/boughtItemsPage" />
-                    </Route>
-                </Switch>
-                <Footer apiError={apiError} />
-            </div>
-        </BrowserRouter>
+        <ThemeProvider theme={lang === "HEB" ? theme : seconderyTheme}>
+            <BrowserRouter>
+                <div className={`app${lang === "HEB" ? ' heb' : ''}`}>
+                    <TabNavigator />
+                    <Switch>
+                        <Route path='/receivedListPage'>
+                            <ReceivedListPage />
+                        </Route>
+                        <Route path='/boughtItemsPage'>
+                            <BoughtItemsPage />
+                        </Route>
+                        <Route path="/" exact>
+                            <Redirect to="/boughtItemsPage" />
+                        </Route>
+                    </Switch>
+                    <Footer apiError={apiError} />
+                </div>
+            </BrowserRouter>
+        </ThemeProvider>
     );
 }
 

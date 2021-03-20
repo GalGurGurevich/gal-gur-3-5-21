@@ -3,6 +3,7 @@ import { addItem } from '../../../redux/itemStoreSlice';
 import { connect } from 'react-redux';
 import SecondryButton from '../PagesCommonParts/Button/SeconderyButton'
 import InputFields from './ItemForm';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import translator from '../../../Helpers/translator'
 import './ItemCreator.css';
 
@@ -42,26 +43,36 @@ function ItemCreator({ addItem, id, lang }) {
         }
     }
 
+    const theme = createMuiTheme({
+        direction: 'rtl',
+      });
+
+    const seconderyTheme = createMuiTheme({
+      direction: 'ltr',
+    });
+
     return (
         <>
-        <div className='item-creator-container'>
-            <InputFields 
-            setName={setName}
-            setStore={setStore}
-            setPrice={setPrice}
-            setDate={setDate}
-            nameLbl={translator(lang, 'itemNameLabel')}
-            storeLbl={translator(lang, 'itemCompanyLabel')}
-            priceLbl={translator(lang, 'itemPriceLabel')}
-            dateLbl={translator(lang, 'itemDateLabel')}
-            name={name}
-            store={store}
-            price={price}
-            date={date}
-            />
-            <SecondryButton func={addCurrentItem} txt={translator(lang, 'itemAddBtn')}></SecondryButton>
-        </div>
-        {itemAdded ? errorMsg() : null }
+            <ThemeProvider theme={lang === "HEB" ? theme : seconderyTheme}>
+                <div className='item-creator-container'>
+                    <InputFields 
+                    setName={setName}
+                    setStore={setStore}
+                    setPrice={setPrice}
+                    setDate={setDate}
+                    nameLbl={translator(lang, 'itemNameLabel')}
+                    storeLbl={translator(lang, 'itemCompanyLabel')}
+                    priceLbl={translator(lang, 'itemPriceLabel')}
+                    dateLbl={translator(lang, 'itemDateLabel')}
+                    name={name}
+                    store={store}
+                    price={price}
+                    date={date}
+                    />
+                    <SecondryButton func={addCurrentItem} txt={translator(lang, 'itemAddBtn')}></SecondryButton>
+                </div>
+                {itemAdded ? errorMsg() : null }
+            </ThemeProvider>
         </>
     );
 }
