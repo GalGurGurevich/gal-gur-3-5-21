@@ -11,10 +11,6 @@ import rtl from 'jss-rtl';
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-const theme = createMuiTheme({
-  direction: 'rtl',
-});
-
 ReactDOM.render(
   <React.StrictMode>
     <StylesProvider jss={jss}>
