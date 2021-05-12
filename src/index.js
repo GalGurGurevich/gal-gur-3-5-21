@@ -5,7 +5,7 @@ import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import { StylesProvider, jssPreset, createMuiTheme } from '@material-ui/core/styles';
+import { StylesProvider, jssPreset } from '@material-ui/core/styles';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 

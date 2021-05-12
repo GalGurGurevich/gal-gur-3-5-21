@@ -23,7 +23,7 @@ export default function InputFields({setName, setStore, setPrice, setDate, name,
       <form className={classes.root} noValidate autoComplete="off">
         <TextField onChange={e => setName(e.target.value)} type="text" id="outlined-basic" value={name} label={nameLbl} variant="outlined" />
         <TextField onChange={e => setStore(e.target.value)} type="text" id="outlined-basic" value={store} label={storeLbl} variant="outlined" />
-        <TextField onChange={e => setPrice(e.target.value)} type="number" formatText={formatText} keyboardType="phone-pad" id="outlined-basic" value={price} label={priceLbl} variant="outlined" />
+        <TextField onChange={e => setPrice(e.target.value)} type="number" formatText={formatText} keyboardtype="phone-pad" id="outlined-basic" value={price} label={priceLbl} variant="outlined" />
         <TextField onChange={e => setDate(e.target.value)} type="date" id="outlined-basic" value={date} InputLabelProps={{shrink: true}} label={dateLbl} variant="outlined" />
       </form>
   );

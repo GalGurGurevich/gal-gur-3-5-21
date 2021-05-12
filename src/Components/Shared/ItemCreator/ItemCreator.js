@@ -9,6 +9,8 @@ import './ItemCreator.css';
 
 function ItemCreator({ addItem, id, lang }) {
 
+    localStorage.setItem('items', JSON.stringify([]));
+
     const [name, setName] = useState('');
     const [store, setStore] = useState('');
     const [price, setPrice] = useState('');

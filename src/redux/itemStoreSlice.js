@@ -35,7 +35,8 @@ export const itemStoreSlice = createSlice({
     extraReducers: {
         // Add reducers for additional action types here, and handle loading state as needed
         [getCurrenyRates.fulfilled]: (state, action) => {
-            state.dollarToShekel = action.payload.rates.ILS;
+            console.log("action.payload: ", action.payload)
+            state.dollarToShekel = action.payload;
             state.apiError = false
         },
         [getCurrenyRates.rejected]: (state, action) => {

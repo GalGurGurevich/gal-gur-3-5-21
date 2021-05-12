@@ -13,14 +13,14 @@ function Item({id , name, store, price, date, dollarToShekel, receiveItem, canRe
         if(apiError === true) {
             return price;
         }
-        return showShekel ? (price * dollarToShekel).toFixed(2) : price
+        return showShekel ? (Number(price) * Number(dollarToShekel)).toFixed(2) : price
      }
  
     function displayCashSymbol() {
         if(apiError === true) {
-            return '$';
+            return '€';
         }
-       return showShekel ? '₪' : '$'; 
+       return showShekel ? '₪' : '€'; 
     }
 
     return (
@@ -35,7 +35,7 @@ function Item({id , name, store, price, date, dollarToShekel, receiveItem, canRe
 }
 
 const mapStateToProps = (state) => ({
-    dollarToShekel: state.userItemCart.dollarToShekel,
+    dollarToShekel: state.userItemCart.dollarToShekel.rates.ILS,
     apiError: state.userItemCart.apiError,
     lang: state.userItemCart.language
 })

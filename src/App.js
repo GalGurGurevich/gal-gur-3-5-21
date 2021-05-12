@@ -13,9 +13,9 @@ function App({ getCurrenyRates, timeInterval, apiError, lang }) {
 
     useEffect(() => {
         getCurrenyRates();
-        const interval = setInterval(getCurrenyRates, timeInterval);
+        // const interval = setInterval(getCurrenyRates, timeInterval);
 
-        return () => clearInterval(interval);
+        // return () => clearInterval(interval);
     }, [getCurrenyRates, timeInterval]);
 
     const theme = createMuiTheme({

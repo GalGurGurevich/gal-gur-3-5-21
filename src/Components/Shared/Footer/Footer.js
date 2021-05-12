@@ -12,8 +12,8 @@ function Footer({ apiError, changeAppLang }) {
 
     return (
         <div className="footer-container">
-            <select className="lan-select" onChange={(e) => updateLan(e.target.value)}>
-                <option value="HEB" selected>{languages.HEB.title}</option>
+            <select defaultValue={"HEB"} className="lan-select" onChange={(e) => updateLan(e.target.value)}>
+                <option value="HEB">{languages.HEB.title}</option>
                 <option value="EN">{languages.EN.title}</option>
             </select>
             {apiError && <span className="error-span">Oops! Sorry service currently unavailble! will try again soon :)</span>}
